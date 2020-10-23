@@ -2,14 +2,19 @@
 	<div class="map">
 		<h3>地图页面</h3>
 		<div id="map"></div>
+		<Btn></Btn>
 	</div>
 </template>
 
 <script>
-	name:"AvueMap"
+	import Btn from './common/Btn.vue'
+	name:"AvueMap";
 	export default {
-	  data(){
-	  	return{
+		components:{
+			Btn
+		},
+	  	data(){
+	  		return{
 
 	  	}
 	  },

@@ -1,43 +1,49 @@
 <template>
 	<div class="circle">
 		<h3>刻度盘</h3>
-		 <avue-echart-gauge ref="echart" :option="config" :data="data" width="1000"></avue-echart-gauge>
+      <avue-echart-gauge  :option='option' :data="data"></avue-echart-gauge>
+      <Btn></Btn>
 	</div>
 </template>
 
 <script>
-	export default{
-		data() {
+  import Btn from './common/Btn.vue'
+export default {
+    components:{
+      Btn
+    },
+    data() {
       return {
+        option: {
+          lineSize: 25,
+          barColor: [{
+              postion: 0.2,
+              color1: '#91c7ae'
+            },
+            {
+              postion: 0.8,
+              color1: '#63869e'
+            },
+            {
+              postion: 1,
+              color1: '#c23531'
+            }
+          ]
+        },
         data: {
-          value: 50,
+          value: 80,
           name: '完成率',
           min: 0,
           max: 100,
           unit: '%'
-        },
-        config: {
-          lineSize: 25,
-          barColor: [{
-            postion: 0.2,
-            color1: '#91c7ae'
-          },
-          {
-            postion: 0.8,
-            color1: '#63869e'
-          },
-          {
-            postion: 1,
-            color1: '#c23531'
-          }
-          ]
         }
       }
     }
 }
-		    	
 </script>
 
 <style scoped>
-
+  .avue-echart-gauge{
+    margin: 0 auto;
+  }
 </style>

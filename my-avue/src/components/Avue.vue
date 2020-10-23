@@ -7,38 +7,27 @@
         >
         {{config.switchTheme?'关闭主题':'打开主题'}}
       </el-button>
-      <el-button 
-        @click="theme='macarons'" 
-        size="small"
-        >
-          换紫色主题
-      </el-button>
-      <el-button 
-        @click="theme='wonderland'" 
-        size="small"
-        >
-          换绿色主题
-        </el-button>
       <avue-echart-bar 
         ref="echart" 
         :theme="theme" 
         :option="config" 
         :data="data" 
         width="1000"
+        height="500"
         >
         </avue-echart-bar>
         <div class="btn">
           <router-link to="./pie" tag="button">饼图</router-link>
           <router-link to="./map" tag="button">地图</router-link>
           <router-link to="./circle" tag="button">刻度盘</router-link>
+          <router-link to="./from" tag="button">表单</router-link>
+          <router-link to="./echarts" tag="button">echarts</router-link>
         </div>
-        
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Avue-bar',
   data() {
       return {
         theme:'',
@@ -127,20 +116,7 @@ export default {
 </script>
 
 <style scoped>
-  .btn button{
-    border: 1px solid #dcdfe6;
-    background: #fff;
-    width: 92px;
-    height: 32px;
-    padding: 9px 15px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 12px;
-    font-family: Arial;
-    margin: auto;
-  }
-  .btn button:hover{
-    background: #ecf5ff;
-    color: #0090ed;
+  .avue-echart-bar{
+    margin: 0 auto;
   }
 </style>

@@ -8,24 +8,19 @@
 			>
 				{{option.switchTheme?'关闭主题':'打开主题'}}
 		</el-button>
-		<el-button @click="theme='macarons'" size="small">
-			换紫色主题
-		</el-button>
-		<el-button @click="theme='wonderland'" size="small">
-			换绿色主题
-		</el-button>
-		<avue-echart-pie :theme="theme" :option="option" :data="data" width="600" height="400"></avue-echart-pie>
+		<avue-echart-pie :option="option" :data="data" width="600" height="400"></avue-echart-pie>
+    <Btn></Btn>
 	</div>
 </template>
 
 <script>
-echarts.registerTheme(theme.themeName, theme.theme)
-echarts.registerTheme(theme1.themeName, theme1.theme)
-echarts.registerTheme(theme2.themeName, theme2.theme)
-export default {
+  import Btn from './common/Btn.vue'
+  export default {
+  components:{
+    Btn
+  },
   data() {
     return {
-      theme:'',
       data: [
           { value: 335, name: '直接访问' },
           { value: 310, name: '邮件营销' },
@@ -37,8 +32,6 @@ export default {
         switchTheme:true,
         width: '100%',
         height: 600,
-        title: '手机大比拼',
-        subtitle: '纯属虚构',
         labelShow:true,
         radius: true,
         "barColor": [
@@ -66,6 +59,14 @@ export default {
 
 <style scoped>
 	.avue-echart-pie{
-		margin: 0 auto;
+    margin: 0 auto;
 	}
+  .avue-echart-pie__title{
+    position: absolute;
+    z-index: -1;
+  }
+  button{
+    position: relative;
+    z-index: 1;
+  }
 </style>
